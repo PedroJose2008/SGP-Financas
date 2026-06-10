@@ -1,0 +1,88 @@
+
+
+  <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SGP - Login</title>
+<link rel="stylesheet" href="css/telainicial.css">
+</head>
+<body>
+
+<main class="container">
+
+<section class="lado-esquerdo">
+<img src="logo.png" alt="Logo SGP" class="logo">
+
+<h1>Bem-vindo ao SGP</h1>
+<p>
+O sistema completo para controlar, organizar<br>
+e gerenciar suas peças com eficiência.
+</p>
+</section>
+
+<section class="card-login">
+<h2>Acesse sua conta</h2>
+<p class="subtitulo">Informe seus dados para entrar no sistema</p>
+
+<form>
+<label for="email">E-mail</label>
+<div class="input-box">
+<span>✉</span>
+<input type="email" id="email" placeholder="Digite seu e-mail">
+</div>
+
+<label for="senha">Senha</label>
+<div class="input-box">
+<span>🔒</span>
+<input type="password" id="senha" placeholder="Digite sua senha">
+<span>👁</span>
+</div>
+
+<button type="submit">Entrar</button>
+</form>
+
+<div class="divisor">
+<span></span>
+<p>ou</p>
+<span></span>
+</div>
+
+<div class="links">
+<a href="#">Cadastrar</a>
+<a href="#">Esqueci minha senha</a>
+</div>
+</section>
+
+</main>
+
+</body>
+</html>
+
+
+<script>
+  // Selecionando os elementos do formulário
+  const form = document.getElementById('form-login');
+  const emailInput = document.getElementById('email');
+  const senhaInput = document.getElementById('senha');
+
+  // Evento de envio do formulário
+  form.addEventListener('submit', function(event) {
+    // Impede o formulário de recarregar a página automaticamente
+    event.preventDefault(); 
+
+    const emailExemplo = 'usuario@gmail.com';
+    const senhaExemplo = '123';
+
+    // Validação dos dados digitados
+    if (emailInput.value === emailExemplo && senhaInput.value === senhaExemplo) {
+      alert('Login realizado com sucesso! Redirecionando...');
+      
+      // Altere para o nome exato do seu arquivo ou URL da página de finanças
+      window.location.href = 'contas-financas.html'; 
+    } else {
+      alert('E-mail ou senha incorretos. Tente novamente.');
+    }
+  });
+
