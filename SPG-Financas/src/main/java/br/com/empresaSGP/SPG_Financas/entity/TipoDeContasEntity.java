@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "TipoDeContas")
@@ -19,8 +20,12 @@ public class TipoDeContasEntity implements Serializable{
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int id;
+	@Size(min = 3)
+	@Size(max = 100)
 	private String nome;
 	private String categoria;
+	@Size(min = 3)
+	@Size(max = 250)
 	private String descricao;
 	
 	public int getId() {
