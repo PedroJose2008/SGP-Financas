@@ -3,6 +3,7 @@ package br.com.empresaSGP.SPG_Financas.entity;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,9 +20,10 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+
 @Entity
-@Table(name = "ContasPagar")
-public class ContasPagarEntity implements Serializable {
+@Table(name = "ContasReceber")
+public class ContasReceberEntity implements Serializable {
 
 	/**
 	 * 
@@ -72,9 +74,18 @@ public class ContasPagarEntity implements Serializable {
 	private String observacao;
 	
 	@ManyToOne
-	@JoinColumn(name = "idTipoConta",nullable = false)
+	@JoinColumn(name = "idTipoConta", nullable = false)
+	private TipoDeContasEntity tipoconta;
 	
-	private TipoDeContasEntity tipoConta;
+	
+	
+	public TipoDeContasEntity getTipoconta() {
+		return tipoconta;
+	}
+
+	public void setTipoconta(TipoDeContasEntity tipoconta) {
+		this.tipoconta = tipoconta;
+	}
 
 	public int getId() {
 		return id;
@@ -158,14 +169,6 @@ public class ContasPagarEntity implements Serializable {
 
 	
 
-	public TipoDeContasEntity getTipoConta() {
-		return tipoConta;
-	}
-
-	public void setTipoConta(TipoDeContasEntity tipoConta) {
-		this.tipoConta = tipoConta;
-	}
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
@@ -174,8 +177,5 @@ public class ContasPagarEntity implements Serializable {
 	
 	
 	
-	
-	
-	
-	
+
 }
