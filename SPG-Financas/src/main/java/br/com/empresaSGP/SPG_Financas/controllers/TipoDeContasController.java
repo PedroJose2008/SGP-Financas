@@ -9,17 +9,17 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
 import br.com.empresaSGP.SPG_Financas.entity.TipoDeContasEntity;
 import br.com.empresaSGP.SPG_Financas.repository.TipoDeContasRepository;
 
 @RestController
-@RequestMapping("/Cadastro")
+@RequestMapping("/tipodecontas")
 @CrossOrigin("*")
 public class TipoDeContasController {
 
@@ -74,6 +74,10 @@ public class TipoDeContasController {
 			
 		}
 		
-		
+		@PostMapping("/salvar")
+		@ResponseStatus(HttpStatus.OK)
+		public TipoDeContasEntity SalvarCidades(@RequestBody TipoDeContasEntity Conta) {
+			return tipoDeContasRepository.save(Conta);
+		}
 		
 }
