@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tipo de Contas — FinanceHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+    </div>
+    <h2>FinanceHub</h2>
+    <span>Gestão Financeira</span>
+  </div>
+  <nav class="sidebar-nav">
+    <span class="nav-label">Principal</span>
+    <a href="gestaofinanceira.html" class="nav-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Dashboard
+    </a>
+    <span class="nav-label">Cadastros</span>
+    <a href="tipodeconta.html" class="nav-item active">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      Tipo de Contas
+    </a>
+    <span class="nav-label">Movimentações</span>
+    <a href="contaspagar.html" class="nav-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="16 12 12 8 8 12"/><line x1="12" y1="16" x2="12" y2="8"/></svg>
+      Contas a Pagar
+    </a>
+    <a href="contasreceber.html" class="nav-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 12 16 16 12"/><line x1="12" y1="8" x2="12" y2="16"/></svg>
+      Contas a Receber
+    </a>
+    <span class="nav-label">Análise</span>
+    <a href="relatoriofinanceiro.html" class="nav-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      Relatórios
+    </a>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="user-card">
+      <div class="user-avatar">JM</div>
+      <div><div class="user-name">João Martins</div><div class="user-role">Administrador</div></div>
+    </div>
+  </div>
+</aside>
+
+<div class="main">
+  <header class="topbar">
+    <div class="topbar-breadcrumb">
+      <span>FinanceHub</span><span class="sep">/</span>
+      <span>Cadastros</span><span class="sep">/</span>
+      <span style="color:#f1f1f5">Tipo de Contas</span>
+    </div>
+    <div class="topbar-actions">
+      <div class="topbar-badge"><div class="dot"></div> Sistema ativo</div>
+    </div>
+  </header>
+
+  <div class="content page-enter">
+    <div class="page-header">
+      <h1>Tipo de Contas</h1>
+      <p>Cadastre e gerencie os tipos de contas financeiras</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:start">
+
+      <div class="form-card" id="form-area">
+        <div style="margin-bottom:22px">
+          <h3 style="font-size:15px;font-weight:600;margin-bottom:4px">Novo tipo de conta</h3>
+          <p style="font-size:13px;color:var(--muted)">Preencha os campos abaixo</p>
+        </div>
+
+        <form id="tipo-form" novalidate>
+          <div class="field-group">
+            <label for="nome">Nome <span class="req">*</span></label>
+            <div class="input-wrap">
+              <input type="text" id="nome" placeholder="Ex: Conta Principal" maxlength="100"/>
+              <span class="char-count" id="nome-count">0/100</span>
+            </div>
+            <span class="error-msg" id="nome-error"></span>
+          </div>
+
+          <div class="field-group">
+            <label for="categoria">Categoria <span class="req">*</span></label>
+            <select id="categoria">
+              <option value="" disabled selected>Selecione uma categoria</option>
+              <option value="Conta Corrente">Conta Corrente</option>
+              <option value="Conta Poupança">Conta Poupança</option>
+              <option value="Conta Investimento">Conta Investimento</option>
+              <option value="Cartão de Crédito">Cartão de Crédito</option>
+              <option value="Dinheiro">Dinheiro</option>
+              <option value="Outros">Outros</option>
+            </select>
+            <span class="error-msg" id="categoria-error"></span>
+          </div>
+
+          <div class="field-group">
+            <label for="descricao">Descrição <span class="req">*</span></label>
+            <div class="input-wrap">
+              <textarea id="descricao" placeholder="Descreva o propósito desta conta..." maxlength="250" rows="4"></textarea>
+              <span class="char-count char-count-bottom" id="descricao-count">0/250</span>
+            </div>
+            <span class="error-msg" id="descricao-error"></span>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn-primary-full">Cadastrar ›</button>
+            <button type="button" class="btn-secondary-full" id="btn-limpar">Limpar</button>
+          </div>
+        </form>
+
+        <div id="success-area" class="hidden">
+          <div class="success-box">
+            <div class="success-icon">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3>Cadastrado com sucesso!</h3>
+            <p id="success-msg">Tipo de conta foi salvo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-header">
+          <h3>Tipos Cadastrados</h3>
+          <span class="badge badge-indigo" id="count-badge">0 registros</span>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Categoria</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="tipos-tbody">
+            <tr><td colspan="3" style="text-align:center;color:var(--muted);padding:32px">Nenhum registro ainda</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const registros = [];
+
+  function setupCounter(id, countId, max) {
+    const el = document.getElementById(id);
+    const ct = document.getElementById(countId);
+    el.addEventListener('input', () => {
+      const l = el.value.length;
+      ct.textContent = `${l}/${max}`;
+      ct.classList.toggle('warn', l > max * 0.8);
+    });
+  }
+  setupCounter('nome','nome-count',100);
+  setupCounter('descricao','descricao-count',250);
+
+  function showErr(id, msg) {
+    document.getElementById(id).classList.add('is-error');
+    const e = document.getElementById(id+'-error');
+    e.textContent = '⚠ '+msg; e.classList.add('visible');
+  }
+  function clearErr(id) {
+    document.getElementById(id).classList.remove('is-error');
+    const e = document.getElementById(id+'-error');
+    e.textContent=''; e.classList.remove('visible');
+  }
+  ['nome','categoria','descricao'].forEach(id=>{
+    document.getElementById(id).addEventListener('input',()=>clearErr(id));
+    document.getElementById(id).addEventListener('change',()=>clearErr(id));
+  });
+
+  function renderTable() {
+    const tbody = document.getElementById('tipos-tbody');
+    document.getElementById('count-badge').textContent = registros.length + ' registro' + (registros.length !== 1 ? 's' : '');
+    if (!registros.length) {
+      tbody.innerHTML = '<tr><td colspan="3" style="text-align:center;color:var(--muted);padding:32px">Nenhum registro ainda</td></tr>';
+      return;
+    }
+    tbody.innerHTML = registros.map(r=>`
+      <tr>
+        <td>${r.nome}</td>
+        <td>${r.categoria}</td>
+        <td><span class="badge badge-green">Ativo</span></td>
+      </tr>`).join('');
+  }
+
+  document.getElementById('tipo-form').addEventListener('submit', e=>{
+    e.preventDefault();
+    let ok = true;
+    const nome = document.getElementById('nome').value.trim();
+    const cat  = document.getElementById('categoria').value;
+    const desc = document.getElementById('descricao').value.trim();
+    if(nome.length < 3)  { showErr('nome','Mínimo de 3 caracteres'); ok=false; }
+    else if(nome.length > 100) { showErr('nome','Máximo de 100 caracteres'); ok=false; }
+    if(!cat) { showErr('categoria','Selecione uma categoria'); ok=false; }
+    if(desc.length < 3)  { showErr('descricao','Mínimo de 3 caracteres'); ok=false; }
+    else if(desc.length > 250) { showErr('descricao','Máximo de 250 caracteres'); ok=false; }
+    if(!ok) return;
+
+    registros.push({ nome, categoria: cat, descricao: desc });
+    renderTable();
+    document.getElementById('success-msg').textContent = `"${nome}" foi salvo.`;
+    document.getElementById('tipo-form').classList.add('hidden');
+    document.getElementById('success-area').classList.remove('hidden');
+    setTimeout(()=>{
+      document.getElementById('success-area').classList.add('hidden');
+      document.getElementById('tipo-form').classList.remove('hidden');
+      document.getElementById('tipo-form').reset();
+      ['nome','categoria','descricao'].forEach(clearErr);
+      document.getElementById('nome-count').textContent='0/100';
+      document.getElementById('descricao-count').textContent='0/250';
+    }, 2200);
+  });
+
+  document.getElementById('btn-limpar').addEventListener('click',()=>{
+    document.getElementById('tipo-form').reset();
+    ['nome','categoria','descricao'].forEach(clearErr);
+    document.getElementById('nome-count').textContent='0/100';
+    document.getElementById('descricao-count').textContent='0/250';
+  });
+</script>
+</body>
+</html>

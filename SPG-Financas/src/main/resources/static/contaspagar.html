@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contas a Pagar — FinanceHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+    </div>
+    <h2>FinanceHub</h2>
+    <span>Gestão Financeira</span>
+  </div>
+  <nav class="sidebar-nav">
+    <span class="nav-label">Principal</span>
+    <a href="gestaofinanceira.html" class="nav-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Dashboard
+    </a>
+    <span class="nav-label">Cadastros</span>
+    <a href="tipodeconta.html" class="nav-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      Tipo de Contas
+    </a>
+    <span class="nav-label">Movimentações</span>
+    <a href="contaspagar.html" class="nav-item active">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="16 12 12 8 8 12"/><line x1="12" y1="16" x2="12" y2="8"/></svg>
+      Contas a Pagar
+    </a>
+    <a href="contasreceber.html" class="nav-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 12 16 16 12"/><line x1="12" y1="8" x2="12" y2="16"/></svg>
+      Contas a Receber
+    </a>
+    <span class="nav-label">Análise</span>
+    <a href="relatoriofinanceiro.html" class="nav-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      Relatórios
+    </a>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="user-card">
+      <div class="user-avatar">JM</div>
+      <div><div class="user-name">João Martins</div><div class="user-role">Administrador</div></div>
+    </div>
+  </div>
+</aside>
+
+<div class="main">
+  <header class="topbar">
+    <div class="topbar-breadcrumb">
+      <span>FinanceHub</span><span class="sep">/</span>
+      <span>Movimentações</span><span class="sep">/</span>
+      <span style="color:#f1f1f5">Contas a Pagar</span>
+    </div>
+    <div class="topbar-actions">
+      <div class="topbar-badge"><div class="dot"></div> Sistema ativo</div>
+    </div>
+  </header>
+
+  <div class="content page-enter">
+    <div class="page-header">
+      <h1>Contas a Pagar</h1>
+      <p>Gerencie seus compromissos financeiros</p>
+    </div>
+
+    <div class="stat-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="stat-card">
+        <div class="stat-card-top">
+          <div class="stat-icon" style="background:rgba(244,63,94,0.12)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <span class="stat-trend trend-down">3 itens</span>
+        </div>
+        <div class="stat-value">R$ 4.320</div>
+        <div class="stat-label">Vencidos</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-top">
+          <div class="stat-icon" style="background:rgba(245,158,11,0.12)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <span class="stat-trend trend-down">5 itens</span>
+        </div>
+        <div class="stat-value">R$ 8.430</div>
+        <div class="stat-label">A vencer (7 dias)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-top">
+          <div class="stat-icon" style="background:rgba(16,185,129,0.12)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span class="stat-trend trend-up">12 itens</span>
+        </div>
+        <div class="stat-value">R$ 21.800</div>
+        <div class="stat-label">Pagos no mês</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:24px;align-items:start">
+      <div class="form-card">
+        <div style="margin-bottom:20px">
+          <h3 style="font-size:15px;font-weight:600;margin-bottom:4px">Nova conta a pagar</h3>
+          <p style="font-size:13px;color:var(--muted)">Registre um compromisso</p>
+        </div>
+        <form id="pagar-form" novalidate>
+          <div class="field-group">
+            <label for="p-descricao">Descrição <span class="req">*</span></label>
+            <input type="text" id="p-descricao" placeholder="Ex: Aluguel do escritório"/>
+            <span class="error-msg" id="p-descricao-error"></span>
+          </div>
+          <div class="form-row">
+            <div class="field-group">
+              <label for="p-valor">Valor (R$) <span class="req">*</span></label>
+              <input type="number" id="p-valor" placeholder="0,00" min="0"/>
+              <span class="error-msg" id="p-valor-error"></span>
+            </div>
+            <div class="field-group">
+              <label for="p-vencimento">Vencimento <span class="req">*</span></label>
+              <input type="date" id="p-vencimento"/>
+              <span class="error-msg" id="p-vencimento-error"></span>
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="p-status">Status</label>
+            <select id="p-status">
+              <option value="Pendente">Pendente</option>
+              <option value="Pago">Pago</option>
+              <option value="Vencido">Vencido</option>
+            </select>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-primary-full">Registrar ›</button>
+            <button type="button" class="btn-secondary-full" onclick="document.getElementById('pagar-form').reset()">Limpar</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="table-card">
+        <div class="table-header">
+          <h3>Lançamentos</h3>
+          <span class="badge badge-red" id="pagar-count">0 registros</span>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Descrição</th><th>Valor</th><th>Vencimento</th><th>Status</th></tr>
+          </thead>
+          <tbody id="pagar-tbody">
+            <tr><td colspan="4" style="text-align:center;color:var(--muted);padding:32px">Nenhum lançamento</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const itens = [];
+  function showErr(id,msg){document.getElementById(id).classList.add('is-error');const e=document.getElementById(id+'-error');e.textContent='⚠ '+msg;e.classList.add('visible');}
+  function clearErr(id){document.getElementById(id).classList.remove('is-error');const e=document.getElementById(id+'-error');e.textContent='';e.classList.remove('visible');}
+  ['p-descricao','p-valor','p-vencimento'].forEach(id=>{
+    document.getElementById(id).addEventListener('input',()=>clearErr(id));
+  });
+  function renderTable(){
+    const tbody=document.getElementById('pagar-tbody');
+    document.getElementById('pagar-count').textContent=itens.length+' registro'+(itens.length!==1?'s':'');
+    if(!itens.length){tbody.innerHTML='<tr><td colspan="4" style="text-align:center;color:var(--muted);padding:32px">Nenhum lançamento</td></tr>';return;}
+    const cls={Pendente:'badge-amber',Pago:'badge-green',Vencido:'badge-red'};
+    tbody.innerHTML=itens.map(r=>`<tr><td>${r.desc}</td><td>R$ ${parseFloat(r.valor).toFixed(2)}</td><td>${r.venc}</td><td><span class="badge ${cls[r.status]}">${r.status}</span></td></tr>`).join('');
+  }
+  document.getElementById('pagar-form').addEventListener('submit',e=>{
+    e.preventDefault();let ok=true;
+    const desc=document.getElementById('p-descricao').value.trim();
+    const valor=document.getElementById('p-valor').value;
+    const venc=document.getElementById('p-vencimento').value;
+    if(!desc){showErr('p-descricao','Informe a descrição');ok=false;}
+    if(!valor||parseFloat(valor)<=0){showErr('p-valor','Informe um valor válido');ok=false;}
+    if(!venc){showErr('p-vencimento','Informe o vencimento');ok=false;}
+    if(!ok)return;
+    itens.push({desc,valor,venc,status:document.getElementById('p-status').value});
+    renderTable();
+    document.getElementById('pagar-form').reset();
+    ['p-descricao','p-valor','p-vencimento'].forEach(clearErr);
+  });
+</script>
+</body>
+</html>

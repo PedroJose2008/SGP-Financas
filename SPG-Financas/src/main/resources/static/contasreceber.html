@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contas a Receber — FinanceHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+    </div>
+    <h2>FinanceHub</h2>
+    <span>Gestão Financeira</span>
+  </div>
+  <nav class="sidebar-nav">
+    <span class="nav-label">Principal</span>
+    <a href="gestaofinanceira.html" class="nav-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Dashboard
+    </a>
+    <span class="nav-label">Cadastros</span>
+    <a href="tipodeconta.html" class="nav-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      Tipo de Contas
+    </a>
+    <span class="nav-label">Movimentações</span>
+    <a href="contaspagar.html" class="nav-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="16 12 12 8 8 12"/><line x1="12" y1="16" x2="12" y2="8"/></svg>
+      Contas a Pagar
+    </a>
+    <a href="contasreceber.html" class="nav-item active">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 12 16 16 12"/><line x1="12" y1="8" x2="12" y2="16"/></svg>
+      Contas a Receber
+    </a>
+    <span class="nav-label">Análise</span>
+    <a href="relatoriofinanceiro.html" class="nav-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      Relatórios
+    </a>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="user-card">
+      <div class="user-avatar">JM</div>
+      <div><div class="user-name">João Martins</div><div class="user-role">Administrador</div></div>
+    </div>
+  </div>
+</aside>
+
+<div class="main">
+  <header class="topbar">
+    <div class="topbar-breadcrumb">
+      <span>FinanceHub</span><span class="sep">/</span>
+      <span>Movimentações</span><span class="sep">/</span>
+      <span style="color:#f1f1f5">Contas a Receber</span>
+    </div>
+    <div class="topbar-actions">
+      <div class="topbar-badge"><div class="dot"></div> Sistema ativo</div>
+    </div>
+  </header>
+
+  <div class="content page-enter">
+    <div class="page-header">
+      <h1>Contas a Receber</h1>
+      <p>Acompanhe seus recebimentos e cobranças</p>
+    </div>
+
+    <div class="stat-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="stat-card">
+        <div class="stat-card-top">
+          <div class="stat-icon" style="background:rgba(16,185,129,0.12)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <span class="stat-trend trend-up">R$ 31.400</span>
+        </div>
+        <div class="stat-value">8 títulos</div>
+        <div class="stat-label">Total a receber</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-top">
+          <div class="stat-icon" style="background:rgba(245,158,11,0.12)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <span class="stat-trend trend-up">+22%</span>
+        </div>
+        <div class="stat-value">R$ 9.800</div>
+        <div class="stat-label">Recebido no mês</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-top">
+          <div class="stat-icon" style="background:rgba(244,63,94,0.12)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <span class="stat-trend trend-down">2 itens</span>
+        </div>
+        <div class="stat-value">R$ 3.200</div>
+        <div class="stat-label">Em atraso</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:24px;align-items:start">
+      <div class="form-card">
+        <div style="margin-bottom:20px">
+          <h3 style="font-size:15px;font-weight:600;margin-bottom:4px">Novo recebimento</h3>
+          <p style="font-size:13px;color:var(--muted)">Registre um título a receber</p>
+        </div>
+        <form id="receber-form" novalidate>
+          <div class="field-group">
+            <label for="r-cliente">Cliente <span class="req">*</span></label>
+            <input type="text" id="r-cliente" placeholder="Nome do cliente"/>
+            <span class="error-msg" id="r-cliente-error"></span>
+          </div>
+          <div class="field-group">
+            <label for="r-descricao">Descrição <span class="req">*</span></label>
+            <input type="text" id="r-descricao" placeholder="Ex: Serviço prestado"/>
+            <span class="error-msg" id="r-descricao-error"></span>
+          </div>
+          <div class="form-row">
+            <div class="field-group">
+              <label for="r-valor">Valor (R$) <span class="req">*</span></label>
+              <input type="number" id="r-valor" placeholder="0,00" min="0"/>
+              <span class="error-msg" id="r-valor-error"></span>
+            </div>
+            <div class="field-group">
+              <label for="r-vencimento">Vencimento <span class="req">*</span></label>
+              <input type="date" id="r-vencimento"/>
+              <span class="error-msg" id="r-vencimento-error"></span>
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="r-status">Status</label>
+            <select id="r-status">
+              <option value="Pendente">Pendente</option>
+              <option value="Recebido">Recebido</option>
+              <option value="Atrasado">Atrasado</option>
+            </select>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn-primary-full">Registrar ›</button>
+            <button type="button" class="btn-secondary-full" onclick="document.getElementById('receber-form').reset()">Limpar</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="table-card">
+        <div class="table-header">
+          <h3>Títulos a Receber</h3>
+          <span class="badge badge-green" id="receber-count">0 registros</span>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Cliente</th><th>Descrição</th><th>Valor</th><th>Status</th></tr>
+          </thead>
+          <tbody id="receber-tbody">
+            <tr><td colspan="4" style="text-align:center;color:var(--muted);padding:32px">Nenhum título</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const titulos=[];
+  function showErr(id,msg){document.getElementById(id).classList.add('is-error');const e=document.getElementById(id+'-error');e.textContent='⚠ '+msg;e.classList.add('visible');}
+  function clearErr(id){document.getElementById(id).classList.remove('is-error');const e=document.getElementById(id+'-error');e.textContent='';e.classList.remove('visible');}
+  ['r-cliente','r-descricao','r-valor','r-vencimento'].forEach(id=>{
+    document.getElementById(id).addEventListener('input',()=>clearErr(id));
+  });
+  function renderTable(){
+    const tbody=document.getElementById('receber-tbody');
+    document.getElementById('receber-count').textContent=titulos.length+' registro'+(titulos.length!==1?'s':'');
+    if(!titulos.length){tbody.innerHTML='<tr><td colspan="4" style="text-align:center;color:var(--muted);padding:32px">Nenhum título</td></tr>';return;}
+    const cls={Pendente:'badge-amber',Recebido:'badge-green',Atrasado:'badge-red'};
+    tbody.innerHTML=titulos.map(r=>`<tr><td>${r.cliente}</td><td>${r.desc}</td><td>R$ ${parseFloat(r.valor).toFixed(2)}</td><td><span class="badge ${cls[r.status]}">${r.status}</span></td></tr>`).join('');
+  }
+  document.getElementById('receber-form').addEventListener('submit',e=>{
+    e.preventDefault();let ok=true;
+    const cliente=document.getElementById('r-cliente').value.trim();
+    const desc=document.getElementById('r-descricao').value.trim();
+    const valor=document.getElementById('r-valor').value;
+    const venc=document.getElementById('r-vencimento').value;
+    if(!cliente){showErr('r-cliente','Informe o cliente');ok=false;}
+    if(!desc){showErr('r-descricao','Informe a descrição');ok=false;}
+    if(!valor||parseFloat(valor)<=0){showErr('r-valor','Informe um valor válido');ok=false;}
+    if(!venc){showErr('r-vencimento','Informe o vencimento');ok=false;}
+    if(!ok)return;
+    titulos.push({cliente,desc,valor,venc,status:document.getElementById('r-status').value});
+    renderTable();document.getElementById('receber-form').reset();
+    ['r-cliente','r-descricao','r-valor','r-vencimento'].forEach(clearErr);
+  });
+</script>
+</body>
+</html>

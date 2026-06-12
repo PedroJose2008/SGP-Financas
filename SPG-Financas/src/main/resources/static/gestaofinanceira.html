@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestão Financeira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/telainicial.css"s/>
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+    </div>
+    <h2>FinanceHub</h2>
+    <span>Gestão Financeira</span>
+  </div>
+
+  <nav class="sidebar-nav">
+    <span class="nav-label">Principal</span>
+    <a href="gestaofinanceira.html" class="nav-item active">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Dashboard
+    </a>
+
+    <span class="nav-label">Cadastros</span>
+    <a href="tipodeconta.html" class="nav-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      Tipo de Contas
+    </a>
+
+    <span class="nav-label">Movimentações</span>
+    <a href="contaspagar.html" class="nav-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="16 12 12 8 8 12"/><line x1="12" y1="16" x2="12" y2="8"/></svg>
+      Contas a Pagar
+    </a>
+    <a href="contasreceber.html" class="nav-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 12 16 16 12"/><line x1="12" y1="8" x2="12" y2="16"/></svg>
+      Contas a Receber
+    </a>
+
+    <span class="nav-label">Análise</span>
+    <a href="relatoriofinanceiro.html" class="nav-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      Relatórios
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="user-card">
+      <div class="user-avatar">JM</div>
+      <div>
+        <div class="user-name">João Martins</div>
+        <div class="user-role">Administrador</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<div class="main">
+  <header class="topbar">
+    <div class="topbar-breadcrumb">
+      <span>FinanceHub</span><span class="sep">/</span><span style="color:#f1f1f5">Dashboard</span>
+    </div>
+    <div class="topbar-actions">
+      <div class="topbar-badge"><div class="dot"></div> Sistema ativo</div>
+    </div>
+  </header>
+
+  <div class="content page-enter">
+    <div class="page-header">
+      <h1>Dashboard</h1>
+      <p>Resumo financeiro — Junho 2026</p>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat-card">
+        <div class="stat-card-top">
+          <div class="stat-icon" style="background:rgba(99,102,241,0.12)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+          <span class="stat-trend trend-up">+12%</span>
+        </div>
+        <div class="stat-value">R$ 48.320</div>
+        <div class="stat-label">Saldo Total</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-card-top">
+          <div class="stat-icon" style="background:rgba(244,63,94,0.12)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="16 12 12 8 8 12"/><line x1="12" y1="16" x2="12" y2="8"/></svg>
+          </div>
+          <span class="stat-trend trend-down">+5%</span>
+        </div>
+        <div class="stat-value">R$ 12.750</div>
+        <div class="stat-label">Contas a Pagar</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-card-top">
+          <div class="stat-icon" style="background:rgba(16,185,129,0.12)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 12 16 16 12"/><line x1="12" y1="8" x2="12" y2="16"/></svg>
+          </div>
+          <span class="stat-trend trend-up">+18%</span>
+        </div>
+        <div class="stat-value">R$ 31.400</div>
+        <div class="stat-label">Contas a Receber</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-card-top">
+          <div class="stat-icon" style="background:rgba(245,158,11,0.12)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <span class="stat-trend trend-up">+8%</span>
+        </div>
+        <div class="stat-value">R$ 18.650</div>
+        <div class="stat-label">Resultado Mensal</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:20px">
+      <div class="chart-card">
+        <h3>Fluxo de Caixa — Últimos 6 meses</h3>
+        <div class="bar-chart">
+          <div class="bar-wrap"><div class="bar" style="height:60%;background:rgba(99,102,241,0.7)"></div><span class="bar-label">Jan</span></div>
+          <div class="bar-wrap"><div class="bar" style="height:80%;background:rgba(99,102,241,0.7)"></div><span class="bar-label">Fev</span></div>
+          <div class="bar-wrap"><div class="bar" style="height:55%;background:rgba(99,102,241,0.7)"></div><span class="bar-label">Mar</span></div>
+          <div class="bar-wrap"><div class="bar" style="height:90%;background:rgba(99,102,241,0.7)"></div><span class="bar-label">Abr</span></div>
+          <div class="bar-wrap"><div class="bar" style="height:70%;background:rgba(99,102,241,0.7)"></div><span class="bar-label">Mai</span></div>
+          <div class="bar-wrap"><div class="bar" style="height:100%;background:linear-gradient(180deg,#6366f1,#4f46e5)"></div><span class="bar-label">Jun</span></div>
+        </div>
+      </div>
+
+      <div class="table-card">
+        <div class="table-header"><h3>Navegação Rápida</h3></div>
+        <div style="padding:16px;display:flex;flex-direction:column;gap:8px">
+          <a href="tipodeconta.html" style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);text-decoration:none;color:#f1f1f5;font-size:13px;transition:background 0.15s" onmouseover="this.style.background='rgba(99,102,241,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            Tipo de Contas
+          </a>
+          <a href="contaspagar.html" style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);text-decoration:none;color:#f1f1f5;font-size:13px;transition:background 0.15s" onmouseover="this.style.background='rgba(244,63,94,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="16 12 12 8 8 12"/><line x1="12" y1="16" x2="12" y2="8"/></svg>
+            Contas a Pagar
+          </a>
+          <a href="contasreceber.html" style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);text-decoration:none;color:#f1f1f5;font-size:13px;transition:background 0.15s" onmouseover="this.style.background='rgba(16,185,129,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 12 16 16 12"/><line x1="12" y1="8" x2="12" y2="16"/></svg>
+            Contas a Receber
+          </a>
+          <a href="relatoriofinanceiro.html" style="display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);text-decoration:none;color:#f1f1f5;font-size:13px;transition:background 0.15s" onmouseover="this.style.background='rgba(245,158,11,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            Relatórios
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
