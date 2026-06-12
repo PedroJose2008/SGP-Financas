@@ -113,9 +113,8 @@ public class ContasPagarController {
 	
 	
 	
-    @GetMapping("/pesquisar")
+	@GetMapping("/pesquisar")
     public List<ContasPagarEntity> pesquisar(
-            
             // @RequestParam: Indica que o parâmetro virá na URL da requisição (ex: ?idCliente=20).
             // (required = false): Torna o filtro OPCIONAL. Se o usuário não enviar, o Java aceita receber null.
             @RequestParam(required = false) Integer idCliente,
@@ -124,7 +123,6 @@ public class ContasPagarController {
             @RequestParam(required = false) String status,
             
             // @DateTimeFormat: Diz ao Spring como converter o texto da URL (ex: "2026-06-10") em um objeto LocalDate válido.
-            // O padrão ISO.DATE espera estritamente o formato Ano-Mês-Dia (AAAA-MM-DD).
             @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataInicio,
             
             // Mesma conversão de data formatada para o limite final do período da pesquisa.
@@ -132,9 +130,7 @@ public class ContasPagarController {
         
         // Executa a consulta customizada que criamos no seu Repository passando todas as variáveis.
         return contasPagarRepository.buscarPorFiltrosMultiplos(idCliente, status, dataInicio, dataFim);
-        
-    } // fim do pesquisar
-	
+    }
 	
 	
 }//fim do programa
