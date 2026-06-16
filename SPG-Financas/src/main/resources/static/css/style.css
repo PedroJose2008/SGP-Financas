@@ -531,3 +531,33 @@ input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.2); }
 }
 
 .hidden { display: none !important; }
+
+.btn-editar,
+.btn-excluir {
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.2s;
+    margin-right: 5px;
+}
+
+.btn-editar {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.btn-editar:hover {
+    background-color: #2563eb;
+}
+
+.btn-excluir {
+    background-color: #ef4444;
+    color: white;
+}
+
+.btn-excluir:hover {
+    background-color: #dc2626;
+}

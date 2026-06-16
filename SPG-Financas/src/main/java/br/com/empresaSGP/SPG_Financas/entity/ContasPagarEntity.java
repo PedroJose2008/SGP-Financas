@@ -20,7 +20,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "ContasPagar")
+@Table(name = "ContasPagar", catalog = "[SPG-Financas]", schema = "dbo")
 public class ContasPagarEntity implements Serializable {
 
 	/**
