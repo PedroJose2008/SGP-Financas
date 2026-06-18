@@ -49,7 +49,7 @@ public class ContasPagarControllerTeste {
 	    tipoConta1.setDescricao("Contas relacionadas a licenças de sistemas e servidores");
 	    // 2. Instanciando o ContasPagarEntity
 	    ContasPagarEntity contapagar1 = new ContasPagarEntity();
-	    contapagar1.setId(1);
+	    contapagar1.setId(1l);
 	    contapagar1.setIdFornecedores(10L);
 	    contapagar1.setIdClientes(20L);
 	    contapagar1.setDescricao("Pagamento da mensalidade da AWS");
@@ -86,7 +86,7 @@ public class ContasPagarControllerTeste {
 	    tipoConta1.setCategoria("TI e Software");
 	    tipoConta1.setDescricao("Contas relacionadas a licenças de sistemas e servidores");
 	    ContasPagarEntity contapagar1 = new ContasPagarEntity();
-	    contapagar1.setId(1);
+	    contapagar1.setId(1l);
 	    contapagar1.setIdFornecedores(10);
 	    contapagar1.setIdClientes(20);
 	    contapagar1.setDescricao("Pagamento da mensalidade da AWS");
@@ -103,7 +103,7 @@ public class ContasPagarControllerTeste {
 		
 		
 		
-		when(contasPagarRepository.findById(1))
+		when(contasPagarRepository.findById((long) 1))
 		.thenReturn(Optional.of(contapagar1));
 		
 		mockMvc.perform(get("/contasPagar/listaPorId/1"))
@@ -117,7 +117,7 @@ public class ContasPagarControllerTeste {
 	public void deletarContasPagarPorId()throws Exception{
 		
 		// 1. Configura o Mock para dizer que o ID 1 EXISTE no banco
-	    when(contasPagarRepository.existsById(1))
+	    when(contasPagarRepository.existsById((long) 1))
 	        .thenReturn(true);
 		
 		
@@ -126,7 +126,7 @@ public class ContasPagarControllerTeste {
 		.andExpect(status().isOk());
 		
 		
-		verify(contasPagarRepository).deleteById(1);
+		verify(contasPagarRepository).deleteById((long) 1);
 		
 	}// fim do deletar por id
 	
@@ -141,7 +141,7 @@ public class ContasPagarControllerTeste {
 	    tipoConta1.setCategoria("TI e Software");
 	    tipoConta1.setDescricao("Contas relacionadas a licenças de sistemas e servidores");
 	    ContasPagarEntity contapagar1 = new ContasPagarEntity();
-	    contapagar1.setId(1);
+	    contapagar1.setId(1l);
 	    contapagar1.setIdFornecedores(10);
 	    contapagar1.setIdClientes(20);
 	    contapagar1.setDescricao("Pagamento da mensalidade da AWS");
@@ -193,7 +193,7 @@ public class ContasPagarControllerTeste {
 	    tipoConta1.setCategoria("TI e Software");
 	    tipoConta1.setDescricao("Contas relacionadas a licenças de sistemas e servidores");
 	    ContasPagarEntity contapagar1 = new ContasPagarEntity();
-	    contapagar1.setId(1);
+	    contapagar1.setId(1l);
 	    contapagar1.setIdFornecedores(10);
 	    contapagar1.setIdClientes(20);
 	    contapagar1.setDescricao("Pagamento da mensalidade da AWS");
@@ -206,7 +206,7 @@ public class ContasPagarControllerTeste {
 	    contapagar1.setTipoConta(tipoConta1);
 		
 	  //  Garante que o método existsById(1) retorne true para entrar no bloco do IF
-	    when(contasPagarRepository.existsById(1))
+	    when(contasPagarRepository.existsById((long) 1))
         .thenReturn(true);
 	    
 		when(contasPagarRepository.save(any(ContasPagarEntity.class)))		
@@ -244,7 +244,7 @@ public class ContasPagarControllerTeste {
 	    tipoConta1.setNome("Despesas Operacionais");
 	    
 	    ContasPagarEntity contapagar1 = new ContasPagarEntity();
-	    contapagar1.setId(1);
+	    contapagar1.setId(1l);
 	    contapagar1.setIdFornecedores(10);
 	    contapagar1.setIdClientes(20); // ID do cliente usado no filtro abaixo
 	    contapagar1.setDescricao("Pagamento da mensalidade da AWS");
@@ -257,7 +257,7 @@ public class ContasPagarControllerTeste {
 	    contapagar1.setTipoConta(tipoConta1);
 		
 		// 2. Definindo as variáveis com os valores que vamos simular na pesquisa
-		Integer filtroCliente = 20;
+		Long filtroCliente = 20l;
 		String filtroStatus = "PAGO";
 		LocalDate filtroDataInicio = LocalDate.of(2026, 6, 1);
 		LocalDate filtroDataFim = LocalDate.of(2026, 6, 30);

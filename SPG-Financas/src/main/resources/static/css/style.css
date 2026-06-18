@@ -532,16 +532,19 @@ input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.2); }
 
 .hidden { display: none !important; }
 
+/* ── ESTILOS DOS BOTÕES DE AÇÃO CUSTOMIZADOS ── */
 .btn-editar,
 .btn-excluir {
     border: none;
-    padding: 8px 14px;
-    border-radius: 8px;
+    padding: 6px 10px !important;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 11px !important; /* Fonte menor para garantir encaixe horizontal */
     font-weight: 600;
     transition: 0.2s;
-    margin-right: 5px;
+    margin: 0 !important;
+    display: inline-block;
+    width: auto !important;
 }
 
 .btn-editar {
@@ -560,4 +563,74 @@ input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.2); }
 
 .btn-excluir:hover {
     background-color: #dc2626;
+}
+
+/* ── CORREÇÕES DE ALINHAMENTO DA TABELA (NOVA SEÇÃO) ── */
+
+/* Força todas as células de dados a ficarem em linha única e reduz a fonte da tabela */
+#receber-tbody td {
+    font-size: 12px !important;
+    white-space: nowrap !important; /* Impede o dia, mês e ano de quebrarem */
+    padding: 10px 12px !important;   /* Grid mais compacto */
+    vertical-align: middle;
+}
+
+/* Garante que os cabeçalhos também não quebrem texto */
+thead th {
+    white-space: nowrap !important;
+    font-size: 11px !important;
+    padding: 12px 12px !important;
+}
+
+/* Alinhamento horizontal estrito para os botões de ação na última coluna */
+#receber-tbody td:last-child, .col-acoes {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 6px !important; /* Espaço entre os dois botões */
+    align-items: center !important;
+    justify-content: flex-start;
+    white-space: nowrap !important;
+}
+
+/* Controle inteligente de largura para as colunas */
+.col-cliente { width: 15%; }
+.col-data    { width: 14%; text-align: left; }
+.col-valor   { width: 12%; }
+.col-status  { width: 12%; }
+.col-acoes   { width: 19%; }
+
+
+/* Estilos base da Tabela para alinhar com o seu tema Dark */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background-color: #161641	; /* Tom escuro do seu painel */
+    color: #ffffff;
+    font-family: sans-serif;
+}
+
+th, td {
+    padding: 12px 16px;
+    text-align: left; /* Mantém o padrão do resto do texto à esquerda */
+    border-bottom: 1px solid #232336;
+}
+
+th {
+    color: #161633; /* Tom cinza do cabeçalho original */
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* --- CLASSE DE CENTRALIZAÇÃO DO ID --- */
+.text-center {
+    text-align: center !important;
+}
+
+/* Alternativa automática via CSS caso você não queira colocar a classe em todas as tags:
+   Isso centraliza a primeira coluna (CLIENTE) de forma automática */
+table tr th:first-child,
+table tr td:first-child {
+    text-align: center;
 }

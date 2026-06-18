@@ -50,7 +50,7 @@ public class ContasReceberControllerTeste {
 		tipoConta1.setDescricao("Entradas de vendas de produtos");
 
 		ContasReceberEntity contasReceber1 = new ContasReceberEntity();
-		contasReceber1.setId(1);
+		contasReceber1.setId(1l);
 		contasReceber1.setIdFornecedores(10L);
 		contasReceber1.setIdClientes(20);
 		contasReceber1.setDescricao("Recebimento fatura cliente X");
@@ -78,11 +78,11 @@ public class ContasReceberControllerTeste {
 		tipoConta1.setNome("Receitas Operacionais");
 
 		ContasReceberEntity contasReceber1 = new ContasReceberEntity();
-		contasReceber1.setId(1);
+		contasReceber1.setId(1l);
 		contasReceber1.setDescricao("Recebimento fatura cliente X");
 		contasReceber1.setTipoconta(tipoConta1);
 
-		when(contasReceberRepository.findById(1))
+		when(contasReceberRepository.findById((long) 1))
 			.thenReturn(Optional.of(contasReceber1));
 
 		mockMvc.perform(get("/contasReceber/listaPorId/1"))
@@ -99,7 +99,7 @@ public class ContasReceberControllerTeste {
 		tipoConta1.setId(1);
 
 		ContasReceberEntity contasReceber1 = new ContasReceberEntity();
-		contasReceber1.setId(1);
+		contasReceber1.setId(1l);
 		contasReceber1.setIdFornecedores(10);
 		contasReceber1.setIdClientes(20);
 		contasReceber1.setDescricao("Recebimento fatura cliente X");
@@ -127,11 +127,11 @@ public class ContasReceberControllerTeste {
 				+ "\"tipoConta\":{\"id\":1}"
 				+ "}";
 
-		mockMvc.perform(post("/contasReceber/gravar")
+		mockMvc.perform(post("/contasReceber/salvar")
 			.contentType(MediaType.APPLICATION_JSON)
 			.content(json))
 			.andDo(print())
-			.andExpect(status().isCreated()); // Espera o status 201 Created do Controller
+			.andExpect(status().isCreated()); 
 
 		verify(contasReceberRepository).save(any(ContasReceberEntity.class));
 	}
@@ -143,7 +143,7 @@ public class ContasReceberControllerTeste {
 		tipoConta1.setId(1);
 
 		ContasReceberEntity contasReceber1 = new ContasReceberEntity();
-		contasReceber1.setId(1);
+		contasReceber1.setId(1l);
 		contasReceber1.setIdFornecedores(10);
 		contasReceber1.setIdClientes(20);
 		contasReceber1.setDescricao("Recebimento fatura cliente X");
@@ -156,7 +156,7 @@ public class ContasReceberControllerTeste {
 		contasReceber1.setTipoconta(tipoConta1);
 
 		// Configura o existsById para retornar true para o fluxo de alteração funcionar
-		when(contasReceberRepository.existsById(1))
+		when(contasReceberRepository.existsById((long) 1))
 			.thenReturn(true);
 
 		when(contasReceberRepository.save(any(ContasReceberEntity.class)))
@@ -175,7 +175,7 @@ public class ContasReceberControllerTeste {
 				+ "\"tipoConta\":{\"id\":1}"
 				+ "}";
 
-		mockMvc.perform(put("/contasReceber/salvar/1")
+		mockMvc.perform(put("/contasReceber/atualizar/1")
 			.contentType(MediaType.APPLICATION_JSON)
 			.content(json))
 			.andDo(print())
@@ -187,14 +187,14 @@ public class ContasReceberControllerTeste {
 	
 	@Test
 	public void deletarContasReceberPorId() throws Exception {
-		when(contasReceberRepository.existsById(1))
+		when(contasReceberRepository.existsById((long) 1))
 			.thenReturn(true);
 
 		mockMvc.perform(delete("/contasReceber/deletar/1"))
 			.andDo(print())
 			.andExpect(status().isOk());
 
-		verify(contasReceberRepository).deleteById(1);
+		verify(contasReceberRepository).deleteById((long) 1);
 	}
 
 
@@ -204,7 +204,7 @@ public class ContasReceberControllerTeste {
 		tipoConta1.setId(1);
 
 		ContasReceberEntity contasReceber1 = new ContasReceberEntity();
-		contasReceber1.setId(1);
+		contasReceber1.setId(1l);
 		contasReceber1.setIdClientes(20); // Bate com o filtroCliente
 		contasReceber1.setStatus("RECEBIDO"); // Bate com o filtroStatus
 		contasReceber1.setDescricao("Recebimento fatura cliente X");
@@ -213,7 +213,7 @@ public class ContasReceberControllerTeste {
 		
 		contasReceber1.setTipoconta(tipoConta1);
 
-		Integer filtroCliente = 20;
+		Long filtroCliente = 20l;
 		String filtroStatus = "RECEBIDO";
 		LocalDate filtroDataInicio = LocalDate.of(2026, 6, 1);
 		LocalDate filtroDataFim = LocalDate.of(2026, 6, 30);

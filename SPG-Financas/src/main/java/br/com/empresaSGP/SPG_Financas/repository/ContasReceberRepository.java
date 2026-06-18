@@ -11,12 +11,12 @@ import org.springframework.stereotype.Repository;
 import br.com.empresaSGP.SPG_Financas.entity.ContasReceberEntity;
 
 @Repository
-public interface ContasReceberRepository extends JpaRepository<ContasReceberEntity, Integer> {
+public interface ContasReceberRepository extends JpaRepository<ContasReceberEntity, Long> {
 
 	
 	// @Query: Permite que você escreva uma consulta JPQL (SQL focada em objetos) personalizada na mão.
 		// A lógica do "IS NULL OR" garante que se o parâmetro chegar nulo do Controller, o banco ignora aquele filtro.
-		@Query("SELECT c FROM ContasPagarEntity c WHERE " +
+		@Query("SELECT c FROM ContasReceberEntity c WHERE " +
 		       "(:idCliente IS NULL OR c.idClientes = :idCliente) AND " +
 		       "(:status IS NULL OR c.status = :status) AND " +
 		       "(:dataInicio IS NULL OR c.dataEmissao >= :dataInicio) AND " +
@@ -25,7 +25,7 @@ public interface ContasReceberRepository extends JpaRepository<ContasReceberEnti
 		    
 		    // @Param: Amarra a variável do método Java com o nome que você usou com dois pontos (:) dentro da @Query.
 		    // O @Param("idCliente") joga o valor de 'idCliente' direto no ':idCliente' lá de cima.
-		    @Param("idCliente") Integer idCliente,
+		    @Param("idCliente") Long idCliente,
 		    @Param("status") String status,
 		    @Param("dataInicio") LocalDate dataInicio,
 		    @Param("dataFim") LocalDate dataFim

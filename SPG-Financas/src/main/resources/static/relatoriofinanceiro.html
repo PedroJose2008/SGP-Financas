@@ -3,20 +3,10 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Relatórios — FinanceHub</title>
+  <title>Contas a Pagar — FinanceHub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css"/>
-  <style>
-    /* Estilos rápidos para a nova seção de filtros se misturar bem ao seu layout */
-    .filter-card { background: #1e1e24; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.05); }
-    .filter-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-top: 15px; }
-    .filter-group { display: flex; flex-direction: column; gap: 5px; }
-    .filter-group label { font-size: 12px; color: #8a8a98; }
-    .filter-group input, .filter-group select { background: #13131a; border: 1px solid #2a2a35; color: #fff; padding: 8px; border-radius: 4px; font-family: inherit; }
-    .btn-filtrar { background: #6366f1; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: 500; align-self: flex-end; }
-    .btn-filtrar:hover { background: #4f46e5; }
-  </style>
 </head>
 <body>
 
@@ -40,7 +30,7 @@
       Tipo de Contas
     </a>
     <span class="nav-label">Movimentações</span>
-    <a href="contaspagar.html" class="nav-item">
+    <a href="contaspagar.html" class="nav-item active">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="16 12 12 8 8 12"/><line x1="12" y1="16" x2="12" y2="8"/></svg>
       Contas a Pagar
     </a>
@@ -49,7 +39,7 @@
       Contas a Receber
     </a>
     <span class="nav-label">Análise</span>
-    <a href="relatoriofinanceiro.html" class="nav-item active">
+    <a href="relatoriofinanceiro.html" class="nav-item">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
       Relatórios
     </a>
@@ -66,8 +56,8 @@
   <header class="topbar">
     <div class="topbar-breadcrumb">
       <span>FinanceHub</span><span class="sep">/</span>
-      <span>Análise</span><span class="sep">/</span>
-      <span style="color:#f1f1f5">Relatórios</span>
+      <span>Movimentações</span><span class="sep">/</span>
+      <span style="color:#f1f1f5">Contas a Pagar</span>
     </div>
     <div class="topbar-actions">
       <div class="topbar-badge"><div class="dot"></div> Sistema ativo</div>
@@ -76,213 +66,163 @@
 
   <div class="content page-enter">
     <div class="page-header">
-      <h1>Relatório Financeiro</h1>
-      <p>Visão consolidada — Junho 2026</p>
+      <h1>Contas a Pagar</h1>
+      <p>Gerencie seus compromissos financeiros</p>
     </div>
 
-    <div class="filter-card">
-      <h3>Parâmetros do Relatório</h3>
-      <form th:action="@{/relatorios/filtrar}" th:object="${relatorioFinanceiroEntity}" method="GET" class="filter-grid">
-        
-        <input type="hidden" th:field="*{id}" />
-
-        <div class="filter-group">
-          <label for="dataInicial">Data Inicial</label>
-          <input type="date" id="dataInicial" th:field="*{dataInicial}" required />
-        </div>
-
-        <div class="filter-group">
-          <label for="dataFinal">Data Final</label>
-          <input type="date" id="dataFinal" th:field="*{dataFinal}" required />
-        </div>
-
-        <div class="filter-group">
-          <label for="tipoConta">Tipo de Conta</label>
-          <input type="text" id="tipoConta" th:field="*{tipoConta}" placeholder="Ex: Corrente" required />
-        </div>
-
-        <div class="filter-group">
-          <label for="cliente">Cliente</label>
-          <input type="text" id="cliente" th:field="*{cliente}" placeholder="Nome do Cliente" required />
-        </div>
-
-        <div class="filter-group">
-          <label for="fornecedor">Fornecedor</label>
-          <input type="text" id="fornecedor" th:field="*{fornecedor}" placeholder="Nome do Fornecedor" required />
-        </div>
-
-        <div class="filter-group">
-          <label for="natureza">Natureza</label>
-          <input type="text" id="natureza" th:field="*{natureza}" placeholder="Ex: Operacional" required />
-        </div>
-
-        <button type="submit" class="btn-filtrar">Gerar Relatório</button>
-      </form>
-    </div>
-    <div class="stat-grid">
-      <div class="stat-card">
-        <div class="stat-card-top">
-          <div class="stat-icon" style="background:rgba(16,185,129,0.12)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
-          </div>
-          <span class="stat-trend trend-up">+18%</span>
-        </div>
-        <div class="stat-value">R$ 31.400</div>
-        <div class="stat-label">Receita Total</div>
-      </div>
+    <div class="stat-grid" style="grid-template-columns:repeat(3,1fr)">
       <div class="stat-card">
         <div class="stat-card-top">
           <div class="stat-icon" style="background:rgba(244,63,94,0.12)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
           </div>
-          <span class="stat-trend trend-down">+5%</span>
+          <span class="stat-trend trend-down">3 itens</span>
         </div>
-        <div class="stat-value">R$ 12.750</div>
-        <div class="stat-label">Despesa Total</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-card-top">
-          <div class="stat-icon" style="background:rgba(99,102,241,0.12)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          </div>
-          <span class="stat-trend trend-up">+31%</span>
-        </div>
-        <div class="stat-value">R$ 18.650</div>
-        <div class="stat-label">Resultado Líquido</div>
+        <div class="stat-value">R$ 4.320</div>
+        <div class="stat-label">Vencidos</div>
       </div>
       <div class="stat-card">
         <div class="stat-card-top">
           <div class="stat-icon" style="background:rgba(245,158,11,0.12)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
-          <span class="stat-trend trend-up">59%</span>
+          <span class="stat-trend trend-down">5 itens</span>
         </div>
-        <div class="stat-value">59,4%</div>
-        <div class="stat-label">Margem</div>
+        <div class="stat-value">R$ 8.430</div>
+        <div class="stat-label">A vencer (7 dias)</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-top">
+          <div class="stat-icon" style="background:rgba(16,185,129,0.12)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <span class="stat-trend trend-up">12 itens</span>
+        </div>
+        <div class="stat-value">R$ 21.800</div>
+        <div class="stat-label">Pagos no mês</div>
       </div>
     </div>
 
-    <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:20px;margin-bottom:20px">
-      <div class="chart-card">
-        <h3>Receitas vs Despesas — 2026</h3>
-        <div style="display:flex;gap:16px;margin-bottom:16px">
-          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)">
-            <div style="width:10px;height:10px;border-radius:2px;background:#6366f1"></div>Receitas
-          </div>
-          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)">
-            <div style="width:10px;height:10px;border-radius:2px;background:#f43f5e"></div>Despesas
-          </div>
+    <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:24px;align-items:start">
+      <div class="form-card">
+        <div style="margin-bottom:20px">
+          <h3 style="font-size:15px;font-weight:600;margin-bottom:4px">Nova conta a pagar</h3>
+          <p style="font-size:13px;color:var(--muted)">Registre um compromisso</p>
         </div>
-        <div style="display:flex;align-items:flex-end;gap:8px;height:140px;padding-bottom:8px;border-bottom:1px solid var(--border)">
-          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px">
-            <div style="width:100%;display:flex;gap:3px;align-items:flex-end;height:120px">
-              <div style="flex:1;border-radius:4px 4px 0 0;background:rgba(99,102,241,0.7);height:55%"></div>
-              <div style="flex:1;border-radius:4px 4px 0 0;background:rgba(244,63,94,0.6);height:35%"></div>
-            </div>
-            <span style="font-size:10px;color:var(--muted)">Jan</span>
+        
+        <form id="pagar-form" th:action="@{/contas-pagar/salvar}" th:object="${contasPagarEntity}" method="POST" novalidate>
+          
+          <input type="hidden" th:field="*{id}" />
+
+          <div class="field-group">
+            <label for="p-descricao">Descrição <span class="req">*</span></label>
+            <input type="text" id="p-descricao" th:field="*{descricao}" placeholder="Ex: Aluguel do escritório" minlength="3" maxlength="250" required/>
+            <span class="error-msg" id="p-descricao-error" th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></span>
           </div>
-          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px">
-            <div style="width:100%;display:flex;gap:3px;align-items:flex-end;height:120px">
-              <div style="flex:1;border-radius:4px 4px 0 0;background:rgba(99,102,241,0.7);height:72%"></div>
-              <div style="flex:1;border-radius:4px 4px 0 0;background:rgba(244,63,94,0.6);height:38%"></div>
+          
+          <div class="form-row">
+            <div class="field-group">
+              <label for="p-valor">Valor (R$) <span class="req">*</span></label>
+              <input type="number" id="p-valor" th:field="*{valor}" placeholder="0,00" min="3.00" max="99999.00" step="0.01" required/>
+              <span class="error-msg" id="p-valor-error" th:if="${#fields.hasErrors('valor')}" th:errors="*{valor}"></span>
             </div>
-            <span style="font-size:10px;color:var(--muted)">Fev</span>
-          </div>
-          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px">
-            <div style="width:100%;display:flex;gap:3px;align-items:flex-end;height:120px">
-              <div style="flex:1;border-radius:4px 4px 0 0;background:rgba(99,102,241,0.7);height:63%"></div>
-              <div style="flex:1;border-radius:4px 4px 0 0;background:rgba(244,63,94,0.6);height:42%"></div>
+            <div class="field-group">
+              <label for="p-vencimento">Vencimento <span class="req">*</span></label>
+              <input type="date" id="p-vencimento" th:field="*{dataVencimento}" required/>
+              <span class="error-msg" id="p-vencimento-error" th:if="${#fields.hasErrors('dataVencimento')}" th:errors="*{dataVencimento}"></span>
             </div>
-            <span style="font-size:10px;color:var(--muted)">Mar</span>
           </div>
-          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px">
-            <div style="width:100%;display:flex;gap:3px;align-items:flex-end;height:120px">
-              <div style="flex:1;border-radius:4px 4px 0 0;background:rgba(99,102,241,0.7);height:85%"></div>
-              <div style="flex:1;border-radius:4px 4px 0 0;background:rgba(244,63,94,0.6);height:44%"></div>
+
+          <input type="hidden" th:field="*{dataEmissao}" th:value="${#temporals.createNow()}" />
+          <input type="hidden" th:field="*{dataRecebimento}" th:value="${#temporals.createNow()}" />
+          <input type="hidden" th:field="*{idFornecedores}" value="1" />
+          <input type="hidden" th:field="*{idClientes}" value="1" />
+          <input type="hidden" th:field="*{observacao}" value="Nenhuma observação" />
+
+          <div class="form-row">
+            <div class="field-group">
+              <label for="p-tipoConta">Tipo de Conta</label>
+              <select id="p-tipoConta" th:field="*{tipoConta.id}">
+                <option th:each="tipo : ${listaTiposDeContas}" th:value="${tipo.id}" th:text="${tipo.descricao}"></option>
+              </select>
             </div>
-            <span style="font-size:10px;color:var(--muted)">Abr</span>
-          </div>
-          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px">
-            <div style="width:100%;display:flex;gap:3px;align-items:flex-end;height:120px">
-              <div style="flex:1;border-radius:4px 4px 0 0;background:rgba(99,102,241,0.7);height:78%"></div>
-              <div style="flex:1;border-radius:4px 4px 0 0;background:rgba(244,63,94,0.6);height:40%"></div>
+            <div class="field-group">
+              <label for="p-status">Status</label>
+              <select id="p-status" th:field="*{status}">
+                <option value="Pendente">Pendente</option>
+                <option value="Pago">Pago</option>
+                <option value="Vencido">Vencido</option>
+              </select>
             </div>
-            <span style="font-size:10px;color:var(--muted)">Mai</span>
           </div>
-          <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:2px">
-            <div style="width:100%;display:flex;gap:3px;align-items:flex-end;height:120px">
-              <div style="flex:1;border-radius:4px 4px 0 0;background:linear-gradient(180deg,#6366f1,#4f46e5);height:100%"></div>
-              <div style="flex:1;border-radius:4px 4px 0 0;background:rgba(244,63,94,0.7);height:41%"></div>
-            </div>
-            <span style="font-size:10px;color:var(--muted)">Jun</span>
+          
+          <div class="form-actions">
+            <button type="submit" class="btn-primary-full">Registrar ›</button>
+            <button type="button" class="btn-secondary-full" onclick="document.getElementById('pagar-form').reset()">Limpar</button>
           </div>
-        </div>
+        </form>
       </div>
 
-      <div class="chart-card">
-        <h3>Distribuição de Despesas</h3>
-        <div style="display:flex;flex-direction:column;gap:12px;margin-top:8px">
-          <div>
-            <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px">
-              <span style="color:var(--muted)">Operacional</span>
-              <span style="color:var(--text);font-weight:500">42%</span>
-            </div>
-            <div style="height:5px;border-radius:4px;background:rgba(255,255,255,0.08)">
-              <div style="height:100%;width:42%;border-radius:4px;background:#6366f1"></div>
-            </div>
-          </div>
-          <div>
-            <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px">
-              <span style="color:var(--muted)">Pessoal</span>
-              <span style="color:var(--text);font-weight:500">31%</span>
-            </div>
-            <div style="height:5px;border-radius:4px;background:rgba(255,255,255,0.08)">
-              <div style="height:100%;width:31%;border-radius:4px;background:#10b981"></div>
-            </div>
-          </div>
-          <div>
-            <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px">
-              <span style="color:var(--muted)">Marketing</span>
-              <span style="color:var(--text);font-weight:500">16%</span>
-            </div>
-            <div style="height:5px;border-radius:4px;background:rgba(255,255,255,0.08)">
-              <div style="height:100%;width:16%;border-radius:4px;background:#f59e0b"></div>
-            </div>
-          </div>
-          <div>
-            <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px">
-              <span style="color:var(--muted)">Outros</span>
-              <span style="color:var(--text);font-weight:500">11%</span>
-            </div>
-            <div style="height:5px;border-radius:4px;background:rgba(255,255,255,0.08)">
-              <div style="height:100%;width:11%;border-radius:4px;background:#f43f5e"></div>
-            </div>
-          </div>
+      <div class="table-card">
+        <div class="table-header">
+          <h3>Lançamentos</h3>
+          <span class="badge badge-red" id="pagar-count" th:text="${#lists.size(listaContasPagar) + ' registros'}">0 registros</span>
         </div>
+        <table>
+          <thead>
+            <tr><th>Descrição</th><th>Valor</th><th>Vencimento</th><th>Status</th></tr>
+          </thead>
+          <tbody id="pagar-tbody">
+            <tr th:if="${#lists.isEmpty(listaContasPagar)}">
+              <td colspan="4" style="text-align:center;color:var(--muted);padding:32px">Nenhum lançamento</td>
+            </tr>
+            
+            <tr th:each="item : ${listaContasPagar}">
+              <td th:text="${item.descricao}">Descrição fictícia</td>
+              <td th:text="${'R$ ' + #numbers.formatDecimal(item.valor, 1, 'POINT', 2, 'COMMA')}">R$ 0,00</td>
+              <td th:text="${#temporals.format(item.dataVencimento, 'dd/MM/yyyy')}">00/00/0000</td>
+              <td>
+                <span th:text="${item.status}" 
+                      th:classappend="${item.status == 'Pago' ? 'badge badge-green' : (item.status == 'Vencido' ? 'badge badge-red' : 'badge badge-amber')}">
+                  Status
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </div>
-
-    <div class="table-card">
-      <div class="table-header">
-        <h3>Extrato Consolidado</h3>
-        <button class="btn-sm btn-ghost-sm">Exportar CSV</button>
-      </div>
-      <table>
-        <thead>
-          <tr><th>Data</th><th>Descrição</th><th>Categoria</th><th>Tipo</th><th>Valor</th><th>Saldo</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>12/06/2026</td><td>Recebimento cliente Alpha</td><td>Serviços</td><td><span class="badge badge-green">Entrada</span></td><td style="color:#34d399">+R$ 8.500</td><td>R$ 48.320</td></tr>
-          <tr><td>11/06/2026</td><td>Fornecedor TechParts</td><td>Operacional</td><td><span class="badge badge-red">Saída</span></td><td style="color:#fb7185">-R$ 2.340</td><td>R$ 39.820</td></tr>
-          <tr><td>10/06/2026</td><td>Assinatura SaaS</td><td>Software</td><td><span class="badge badge-red">Saída</span></td><td style="color:#fb7185">-R$ 890</td><td>R$ 42.160</td></tr>
-          <tr><td>09/06/2026</td><td>Contrato Beta Corp</td><td>Serviços</td><td><span class="badge badge-green">Entrada</span></td><td style="color:#34d399">+R$ 12.000</td><td>R$ 43.050</td></tr>
-          <tr><td>08/06/2026</td><td>Folha de pagamento</td><td>Pessoal</td><td><span class="badge badge-red">Saída</span></td><td style="color:#fb7185">-R$ 6.200</td><td>R$ 31.050</td></tr>
-          <tr><td>07/06/2026</td><td>Aluguel escritório</td><td>Operacional</td><td><span class="badge badge-red">Saída</span></td><td style="color:#fb7185">-R$ 3.200</td><td>R$ 37.250</td></tr>
-        </tbody>
-      </table>
     </div>
   </div>
 </div>
 
+<script>
+  const itens = [];
+  function showErr(id,msg){document.getElementById(id).classList.add('is-error');const e=document.getElementById(id+'-error');e.textContent='⚠ '+msg;e.classList.add('visible');}
+  function clearErr(id){document.getElementById(id).classList.remove('is-error');const e=document.getElementById(id+'-error');e.textContent='';e.classList.remove('visible');}
+  ['p-descricao','p-valor','p-vencimento'].forEach(id=>{
+    document.getElementById(id).addEventListener('input',()=>clearErr(id));
+  });
+  function renderTable(){
+    const tbody=document.getElementById('pagar-tbody');
+    document.getElementById('pagar-count').textContent=itens.length+' registro'+(itens.length!==1?'s':'');
+    if(!itens.length){tbody.innerHTML='<tr><td colspan="4" style="text-align:center;color:var(--muted);padding:32px">Nenhum lançamento</td></tr>';return;}
+    const cls={Pendente:'badge-amber',Pago:'badge-green',Vencido:'badge-red'};
+    tbody.innerHTML=itens.map(r=>`<tr><td>${r.desc}</td><td>R$ ${parseFloat(r.valor).toFixed(2)}</td><td>${r.venc}</td><td><span class="badge ${cls[r.status]}">${r.status}</span></td></tr>`).join('');
+  }
+  document.getElementById('pagar-form').addEventListener('submit',e=>{
+    e.preventDefault();let ok=true;
+    const desc=document.getElementById('p-descricao').value.trim();
+    const valor=document.getElementById('p-valor').value;
+    const venc=document.getElementById('p-vencimento').value;
+    if(!desc){showErr('p-descricao','Informe a descrição');ok=false;}
+    if(!valor||parseFloat(valor)<=0){showErr('p-valor','Informe um valor válido');ok=false;}
+    if(!venc){showErr('p-vencimento','Informe o vencimento');ok=false;}
+    if(!ok)return;
+    itens.push({desc,valor,venc,status:document.getElementById('p-status').value});
+    renderTable();
+    document.getElementById('pagar-form').reset();
+    ['p-descricao','p-valor','p-vencimento'].forEach(clearErr);
+  });
+</script>
 </body>
 </html>

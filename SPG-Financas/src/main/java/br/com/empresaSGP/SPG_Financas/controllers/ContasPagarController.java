@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,7 @@ import br.com.empresaSGP.SPG_Financas.repository.ContasPagarRepository;
 
 @RestController
 @RequestMapping("/contasPagar")
+@CrossOrigin("*")
 public class ContasPagarController {
 
 	@Autowired
@@ -48,7 +50,7 @@ public class ContasPagarController {
 	
 	@GetMapping("listaPorId/{id}")
 	@ResponseStatus(value = HttpStatus.OK)
-	public Optional<ContasPagarEntity> listaPorId(@PathVariable int id){
+	public Optional<ContasPagarEntity> listaPorId(@PathVariable Long id){
 		
 		return contasPagarRepository.findById(id);
 		
@@ -71,7 +73,7 @@ public class ContasPagarController {
 	
 	@DeleteMapping("/deletar/{id}")
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
-	public ResponseEntity<String> deleta(@PathVariable int id ){
+	public ResponseEntity<String> deleta(@PathVariable Long id ){
 		
 	if(contasPagarRepository.existsById(id)) {
 		
@@ -92,7 +94,7 @@ public class ContasPagarController {
 	}//fim deletar 
 	
 	@PutMapping("salvar/{id}")
-	public ResponseEntity<String> salva (@RequestBody ContasPagarEntity contasPagar, @PathVariable int id ){
+	public ResponseEntity<String> salva (@RequestBody ContasPagarEntity contasPagar, @PathVariable Long id ){
 		
 		if(contasPagarRepository.existsById(id)) {
 			contasPagar.setId(id);
@@ -117,7 +119,7 @@ public class ContasPagarController {
     public List<ContasPagarEntity> pesquisar(
             // @RequestParam: Indica que o parâmetro virá na URL da requisição (ex: ?idCliente=20).
             // (required = false): Torna o filtro OPCIONAL. Se o usuário não enviar, o Java aceita receber null.
-            @RequestParam(required = false) Integer idCliente,
+            @RequestParam(required = false) Long idCliente,
             
             // @RequestParam para o status (ex: ?status=PAGO). Também é opcional.
             @RequestParam(required = false) String status,

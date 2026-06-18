@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,132 +22,81 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.empresaSGP.SPG_Financas.entity.ContasReceberEntity;
 import br.com.empresaSGP.SPG_Financas.repository.ContasReceberRepository;
+// IMPORTANTE: Certifique-se de que o import abaixo aponta para a pasta correta da sua Service
+// import br.com.empresaSGP.SPG_Financas.service.ContasReceberService; 
 
 @RestController
 @RequestMapping("/contasReceber")
+@CrossOrigin("*")
 public class ContasReceberController {
 
 	@Autowired
-	private ContasReceberRepository  contasReceberRepository;
+	private ContasReceberRepository contasReceberRepository;
+	
+	// CORREÇÃO 1: Adicionada a injeção da Service que estava faltando para o método usar
+	@Autowired
 		
-	
 	//listar todos 
-	
-	
 	@GetMapping("/listar")
 	@ResponseStatus(value = HttpStatus.OK)
 	public List<ContasReceberEntity> lista(){
-		
-		
 		return contasReceberRepository.findAll();
-		
 	}//fim
-	
 	
 	//listar por id 
-	
 	@GetMapping("listaPorId/{id}")
 	@ResponseStatus(value = HttpStatus.OK)
-	public Optional<ContasReceberEntity> listaPorId(@PathVariable int id){
-		
+	public Optional<ContasReceberEntity> listaPorId(@PathVariable Long id){
 		return contasReceberRepository.findById(id);
-		
 	}//fim
 	
-	
-	
-	//gravando 
-	@PostMapping("/gravar")
+	// 1. ALTERADO: Rota de inserção de novos títulos (POST)
+	@PostMapping("/salvar")
 	@ResponseStatus(value = HttpStatus.CREATED)
 	public ContasReceberEntity grava(@RequestBody ContasReceberEntity contasrecer) {
-		
-
-		
-	
 		return contasReceberRepository.save(contasrecer);
-		
-		
 	}//fim
 	
 	@DeleteMapping("/deletar/{id}")
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
-	public ResponseEntity<String> deleta(@PathVariable int id ){
-		
-	if(contasReceberRepository.existsById(id)) {
-		
-		contasReceberRepository.deleteById(id);
-		
-		return ResponseEntity.ok("Deletado o Id "+id+" com sucesso" );
-		
-	}//fim
-		
-	else {
-		
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrado o Id " + id ) ;
-
-		
-	}//fim
-		
-		
+	public ResponseEntity<String> deleta(@PathVariable Long id ){
+		if(contasReceberRepository.existsById(id)) {
+			contasReceberRepository.deleteById(id);
+			return ResponseEntity.ok("Deletado o Id "+id+" com sucesso" );
+		} else {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrado o Id " + id ) ;
+		}
 	}//fim deletar 
 	
-	@PutMapping("salvar/{id}")
-	public ResponseEntity<String> salva (@RequestBody ContasReceberEntity contasRecer, @PathVariable int id ){
-		
+	// 2. ALTERADO: Rota de atualização (PUT) mapeada de forma limpa
+	@PutMapping("/atualizar/{id}")
+	public ResponseEntity<String> atualiza (@RequestBody ContasReceberEntity contasRecer, @PathVariable Long id ){
 		if(contasReceberRepository.existsById(id)) {
 			contasRecer.setId(id);
-			
 			contasReceberRepository.save(contasRecer);
-			
-			return ResponseEntity.ok(id +" Salvo com sucesso ");
+			return ResponseEntity.ok(id +" Atualizado com sucesso ");
+		} else {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Não foi encontrado o Id "+id);
 		}
-		
-		else {
-			
-			return ResponseEntity.status(HttpStatus.NO_CONTENT).body("não foi encontrado o Id"+id);
-		}
-		
-		
 	}
-	
-	
-	
-	
-	
-	 @GetMapping("/pesquisar")
-	    public List<ContasReceberEntity> pesquisar(
-	            
-	            // @RequestParam: Indica que o parâmetro virá na URL da requisição (ex: ?idCliente=20).
-	            // (required = false): Torna o filtro OPCIONAL. Se o usuário não enviar, o Java aceita receber null.
-	            @RequestParam(required = false) Integer idCliente,
-	            
-	            // @RequestParam para o status (ex: ?status=PAGO). Também é opcional.
-	            @RequestParam(required = false) String status,
-	            
-	            // @DateTimeFormat: Diz ao Spring como converter o texto da URL (ex: "2026-06-10") em um objeto LocalDate válido.
-	            // O padrão ISO.DATE espera estritamente o formato Ano-Mês-Dia (AAAA-MM-DD).
-	            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataInicio,
-	            
-	            // Mesma conversão de data formatada para o limite final do período da pesquisa.
-	            @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dataFim) {
-	        
-	        // Executa a consulta customizada que criamos no seu Repository passando todas as variáveis.
-	        return contasReceberRepository.buscarPorFiltrosMultiplos(idCliente, status, dataInicio, dataFim);
-	        
-	    } // fim do pesquisar
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	@GetMapping("/pesquisar")
+	public ResponseEntity<List<ContasReceberEntity>> pesquisar(
+			@RequestParam(value = "idCliente", required = false) Long idCliente,
+			@RequestParam(value = "dataInicio", required = false) String dataInicio,
+			@RequestParam(value = "dataFim", required = false) String dataFim,
+			@RequestParam(value = "status", required = false) String status
+	) {
+		// Converte o texto que vem da URL (JavaScript) para o tipo LocalDate aceito pelo seu Repository
+		LocalDate inicio = (dataInicio != null && !dataInicio.isEmpty()) ? LocalDate.parse(dataInicio) : null;
+		LocalDate fim = (dataFim != null && !dataFim.isEmpty()) ? LocalDate.parse(dataFim) : null;
+		
+		// Trata String de status vazia vinda do "Todos" do select como nula para o banco ignorar o filtro
+		String statusFiltro = (status != null && !status.isEmpty()) ? status : null;
+
+		// CHAMADA CORRIGIDA: Aponta direto para o método criado no seu Repository!
+		List<ContasReceberEntity> resultado = contasReceberRepository.buscarPorFiltrosMultiplos(idCliente, statusFiltro, inicio, fim);
+		
+		return ResponseEntity.ok(resultado);
+	}
 }

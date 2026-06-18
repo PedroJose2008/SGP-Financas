@@ -19,6 +19,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "ContasPagar", catalog = "[SPG-Financas]", schema = "dbo")
 public class ContasPagarEntity implements Serializable {
@@ -30,7 +32,7 @@ public class ContasPagarEntity implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	
 	@NotNull
 	private long idFornecedores;
@@ -61,7 +63,7 @@ public class ContasPagarEntity implements Serializable {
 	
 	@NotNull
 
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private LocalDate  dataRecebimento;
 	
 	@NotBlank
@@ -72,15 +74,18 @@ public class ContasPagarEntity implements Serializable {
 	private String observacao;
 	
 	@ManyToOne
-	@JoinColumn(name = "idTipoConta",nullable = false)
-	
-	private TipoDeContasEntity tipoConta;
+    @JoinColumn(name = "idTipoConta") // Use o nome real da sua coluna estrangeira
+    @JsonIgnoreProperties({"contas", "hibernateLazyInitializer", "handler"}) 
+    @org.hibernate.annotations.NotFound(action = org.hibernate.annotations.NotFoundAction.IGNORE) // <-- ADICIONE ESTA LINHA EXATAMENTE AQUI
+    private TipoDeContasEntity tipoConta;
 
-	public int getId() {
+
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

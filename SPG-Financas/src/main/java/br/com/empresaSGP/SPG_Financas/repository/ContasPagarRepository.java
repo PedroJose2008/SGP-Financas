@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import br.com.empresaSGP.SPG_Financas.entity.ContasPagarEntity;
 
 @Repository
-public interface ContasPagarRepository extends JpaRepository<ContasPagarEntity, Integer>{
+public interface ContasPagarRepository extends JpaRepository<ContasPagarEntity, Long>{
 
 	
 	// @Query: Permite que você escreva uma consulta JPQL (SQL focada em objetos) personalizada na mão.
@@ -25,7 +25,7 @@ public interface ContasPagarRepository extends JpaRepository<ContasPagarEntity, 
 	    
 	    // @Param: Amarra a variável do método Java com o nome que você usou com dois pontos (:) dentro da @Query.
 	    // O @Param("idCliente") joga o valor de 'idCliente' direto no ':idCliente' lá de cima.
-	    @Param("idCliente") Integer idCliente,
+	    @Param("idCliente") Long idCliente,
 	    @Param("status") String status,
 	    @Param("dataInicio") LocalDate dataInicio,
 	    @Param("dataFim") LocalDate dataFim

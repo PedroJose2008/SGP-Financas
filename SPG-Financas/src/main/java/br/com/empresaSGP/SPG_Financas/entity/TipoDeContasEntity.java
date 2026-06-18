@@ -1,13 +1,17 @@
 package br.com.empresaSGP.SPG_Financas.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "TipoDeContas")
@@ -28,6 +32,22 @@ public class TipoDeContasEntity implements Serializable{
 	@Size(max = 250)
 	private String descricao;
 	
+	@OneToMany(mappedBy = "tipoConta")
+	@JsonIgnoreProperties({"tipoConta", "hibernateLazyInitializer", "handler"})
+	private List<ContasPagarEntity> contas;
+	
+	
+	
+	
+	public List<ContasPagarEntity> getContas() {
+		return contas;
+	}
+	public void setContas(List<ContasPagarEntity> contas) {
+		this.contas = contas;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	public int getId() {
 		return id;
 	}
