@@ -26,7 +26,7 @@ public class RelatorioFinanceiroEntity {
 	
 	@NotNull
 	@Column(name = "tipoConta", length = 200, nullable = false)
-	private String tipoConta;
+	private TipoDeContasEntity tipoConta;
 	
 	@NotNull
 	@Column(name = "cliente", length = 200, nullable = false)
@@ -64,11 +64,11 @@ public class RelatorioFinanceiroEntity {
 		this.dataFinal = dataFinal;
 	}
 
-	public String getTipoConta() {
+	public TipoDeContasEntity getTipoConta() {
 		return tipoConta;
 	}
 
-	public void setTipoConta(String tipoConta) {
+	public void setTipoConta(TipoDeContasEntity tipoConta) {
 		this.tipoConta = tipoConta;
 	}
 
