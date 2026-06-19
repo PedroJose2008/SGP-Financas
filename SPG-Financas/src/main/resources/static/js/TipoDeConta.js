@@ -114,7 +114,24 @@ function limparFormulario() {
 
     document.getElementById("nome").value = "";
     document.getElementById("categoria").value = "";
-    document.getElementById("descricao").value = "";
+    document.getElementById("descricao").value = ""; 
 
     editandoId = null;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
