@@ -44,7 +44,6 @@ public class RelatorioFinanceiroControllerTest {
 		relatorio1.setCliente("Daniel");
 		relatorio1.setDataFinal(LocalDate.of(2026, 9, 17)); 
 		relatorio1.setDataInicial(LocalDate.of(2026, 6, 10));
-		relatorio1.setTipoConta("Luz");
 		relatorio1.setNatureza("Receita");
 		relatorio1.setFornecedor("Senai Cedetem");
 		
@@ -53,7 +52,6 @@ public class RelatorioFinanceiroControllerTest {
 		relatorio2.setCliente("Maria");
 		relatorio2.setDataFinal(LocalDate.of(2026, 10, 20));
 		relatorio2.setDataInicial(LocalDate.of(2026, 3, 18));
-		relatorio2.setTipoConta("Água");
 		relatorio2.setNatureza("Despesa");
 		relatorio2.setFornecedor("Senai Cedetem");
 		
@@ -73,7 +71,6 @@ public class RelatorioFinanceiroControllerTest {
 		relatorio1.setCliente("Daniel");
 		relatorio1.setDataFinal(LocalDate.of(2026, 9, 17)); 
 		relatorio1.setDataInicial(LocalDate.of(2026, 6, 10));
-		relatorio1.setTipoConta("Luz");
 		relatorio1.setNatureza("Receita");
 		relatorio1.setFornecedor("Senai Cedetem");
 		
@@ -105,7 +102,6 @@ public class RelatorioFinanceiroControllerTest {
 		relatorioAtualizado.setCliente("Maria de Abreu");
 		relatorioAtualizado.setDataFinal(LocalDate.of(2026, 11, 20)); 
 		relatorioAtualizado.setDataInicial(LocalDate.of(2026, 1, 13));
-		relatorioAtualizado.setTipoConta("Alimentação");
 		relatorioAtualizado.setNatureza("Receita");
 		relatorioAtualizado.setFornecedor("Senai Cedetem");
 		
@@ -136,4 +132,3 @@ public class RelatorioFinanceiroControllerTest {
 		verify(RFRepository).save(any(RelatorioFinanceiroEntity.class));
 	}
 }
-// oiii

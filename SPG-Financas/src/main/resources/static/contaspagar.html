@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contas a Pagar
-   — FinanceHub</title>
+  <title>Contas a Pagar — FinanceHub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css"/>
@@ -31,11 +30,11 @@
       Tipo de Contas
     </a>
     <span class="nav-label">Movimentações</span>
-    <a href="contaspagar.html" class="nav-item">
+    <a href="contaspagar.html" class="nav-item active">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="16 12 12 8 8 12"/><line x1="12" y1="16" x2="12" y2="8"/></svg>
       Contas a Pagar
     </a>
-    <a href="contasreceber.html" class="nav-item active">
+    <a href="contasreceber.html" class="nav-item">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="8 12 12 16 16 12"/><line x1="12" y1="8" x2="12" y2="16"/></svg>
       Contas a Receber
     </a>
@@ -68,57 +67,52 @@
   <div class="content page-enter">
     <div class="page-header">
       <h1>Contas a Pagar</h1>
-      <p>Acompanhe seus recebimentos e cobranças</p>
+      <p>Acompanhe e gerencie suas obrigações e despesas</p>
     </div>
 
    <div class="stat-grid" style="grid-template-columns:repeat(3,1fr)">
-  <div class="stat-card">
-    <div class="stat-card-top">
-      <div class="stat-icon" style="background:rgba(16,185,129,0.12)">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      <div class="stat-card">
+        <div class="stat-card-top">
+          <div class="stat-icon" style="background:rgba(16,185,129,0.12)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <span class="stat-trend trend-up" id="card-total-qtd">0 títulos</span>
+        </div>
+        <div class="stat-value" id="card-total-valor">R$ 0,00</div>
+        <div class="stat-label">Total a Pagar</div>
       </div>
-      <span class="stat-trend trend-up" id="card-total-qtd">0 títulos</span> </div>
-    <div class="stat-value" id="card-total-valor">R$ 0,00</div> <div class="stat-label">Total a Pagar</div>
-  </div>
-  
-  
 
-  <div class="stat-card">
-  <div class="stat-card-top">
-    <div class="stat-icon" style="background:rgba(245,158,11,0.12)">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      <div class="stat-card">
+        <div class="stat-card-top">
+          <div class="stat-icon" style="background:rgba(245,158,11,0.12)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <span class="stat-trend" id="card-pendente-qtd" style="color: #f59e0b; background: rgba(245, 158, 11, 0.15); padding: 2px 8px; border-radius: 4px;">0 itens</span>
+        </div>
+        <div class="stat-value" id="card-pendente-valor">R$ 0,00</div>
+        <div class="stat-label">Pendentes no mês</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-card-top">
+          <div class="stat-icon" style="background:rgba(244,63,94,0.12)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <span class="stat-trend trend-down" id="card-atrasado-qtd">0 itens</span>
+        </div>
+        <div class="stat-value" id="card-atrasado-valor">R$ 0,00</div>
+        <div class="stat-label">Em atraso</div>
+      </div>
     </div>
-    <span class="stat-trend" id="card-pendente-qtd" style="color: #f59e0b; background: rgba(245, 158, 11, 0.15); padding: 2px 8px; border-radius: 4px;">0 itens</span>
-  </div>
-  <div class="stat-value" id="card-pendente-valor">R$ 0,00</div>
-  <div class="stat-label">Pendentes no mês</div>
-</div>
-
-
-  <div class="stat-card">
-    <div class="stat-card-top">
-      <div class="stat-icon" style="background:rgba(244,63,94,0.12)">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f43f5e" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      </div>
-      <span class="stat-trend trend-down" id="card-atrasado-qtd">0 itens</span> </div>
-    <div class="stat-value" id="card-atrasado-valor">R$ 0,00</div> <div class="stat-label">Em atraso</div>
-  </div>
-</div>
-   
-   
-
-
-
 
     <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:24px;align-items:start;width:100%">
       <div class="form-card">
         <div style="margin-bottom:20px">
-          <h3 style="font-size:15px;font-weight:600;margin-bottom:4px">Novo recebimento</h3>
-          <p style="font-size:13px;color:var(--muted)">Registre um título a Pagar</p>
+          <h3 style="font-size:15px;font-weight:600;margin-bottom:4px">Novo Lançamento</h3>
+          <p style="font-size:13px;color:var(--muted)">Registre uma conta a pagar</p>
         </div>
         
-        <form id="receber-form" onsubmit="event.preventDefault(); ejecutarAcaoPrincipal();">
-          
+        <form id="pagar-form" onsubmit="event.preventDefault(); ejecutarAcaoPrincipal();">
           <input type="hidden" id="conta-id" />
 
           <div class="field-group">
@@ -128,7 +122,7 @@
           
           <div class="field-group">
             <label for="descricao">Descrição <span class="req">*</span></label>
-            <input type="text" id="descricao" placeholder="Ex: Serviço prestado" required/>
+            <input type="text" id="descricao" placeholder="Ex: Conta de Luz, Aluguel" required/>
           </div>
           
           <div class="form-row">
@@ -148,8 +142,8 @@
               <input type="date" id="emissao" required/>
             </div>
             <div class="field-group">
-              <label for="recebimento">Data de Recebimento <span class="req">*</span></label>
-              <input type="date" id="recebimento" required/>
+              <label for="recebimento">Data de Pagamento</label>
+              <input type="date" id="recebimento"/>
             </div>
           </div>
 
@@ -161,7 +155,8 @@
           <div class="form-row">
             <div class="field-group">
               <label for="tipoConta">Tipo de Conta <span class="req">*</span></label>
-              <select id="tipoConta" required >
+              <select id="tipoConta" required>
+                <option value="" disabled selected>Selecione um tipo</option>
               </select>
             </div>
             <div class="field-group">
@@ -175,8 +170,8 @@
           </div>
 
           <div class="field-group">
-            <label for="observacao">Observação <span class="req">*</span></label>
-            <input type="text" id="observacao" placeholder="Adicione notas sobre este recebimento..." required/>
+            <label for="observacao">Observação</label>
+            <input type="text" id="observacao" placeholder="Adicione notas sobre esta despesa..."/>
           </div>
 
           <div class="form-actions">
@@ -187,7 +182,6 @@
       </div>
 
       <div style="display:flex;flex-direction:column;gap:20px;width:100%">
-        
         <div class="form-card" style="padding:16px 20px; width:100% !important; max-width:none !important; box-sizing:border-box;">
           <div style="margin-bottom:12px">
             <h4 style="font-size:14px;font-weight:600;margin-bottom:2px">Filtros de Pesquisa</h4>
@@ -195,22 +189,18 @@
           </div>
           <form id="filtro-form" onsubmit="return false;">
             <div class="form-row" style="grid-template-columns: 1.2fr 1fr 1fr 1fr; gap:12px; align-items:end">
-              
               <div class="field-group" style="margin:0">
                 <label for="f-cliente" style="font-size:11px">Cliente</label>
-                <input type="text" id="f-cliente" placeholder="ID ou nome do cliente" style="padding:8px 12px;font-size:13px"/>
+                <input type="text" id="f-cliente" placeholder="ID do cliente" style="padding:8px 12px;font-size:13px"/>
               </div>
-              
               <div class="field-group" style="margin:0">
-                <label for="f-data-inicio" style="font-size:11px">Data de Início </label>
+                <label for="f-data-inicio" style="font-size:11px">Data de Início</label>
                 <input type="date" id="f-data-inicio" style="padding:8px 12px;font-size:13px"/>
               </div>
-              
               <div class="field-group" style="margin:0">
-                <label for="f-data-fim" style="font-size:11px">Data de Vencimento</label>
+                <label for="f-data-fim" style="font-size:11px">Data Final</label>
                 <input type="date" id="f-data-fim" style="padding:8px 12px;font-size:13px"/>
               </div>
-              
               <div class="field-group" style="margin:0">
                 <label for="f-status" style="font-size:11px">Status</label>
                 <select id="f-status" style="padding:8px 12px;font-size:13px">
@@ -220,19 +210,18 @@
                   <option value="Atrasado">Atrasado</option>
                 </select>
               </div>
-
             </div>
             <div style="display:flex;justify-content:flex-end;margin-top:12px;gap:8px">
               <button type="button" id="btn-limpar-filtro" class="btn-secondary-full" style="width:auto;padding:8px 16px;font-size:13px">Limpar Filtros</button>
-              <button type="button" id="btn-filtrar" class="btn-primary-full" style="width:auto;padding:8px 20px;font-size:13px" onclick="pesquisarContas();">Buscar</button>
+              <button type="button" id="btn-filtrar" class="btn-primary-full" style="width:auto;padding:8px 20px;font-size:13px">Buscar</button>
             </div>
           </form>
         </div>
 
         <div class="table-card" style="margin:0; width:100% !important; max-width:none !important; box-sizing:border-box;">
           <div class="table-header">
-            <h3>Títulos a Pagar</h3>
-            <span class="badge badge-green" id="receber-count">0 registros</span>
+            <h3>Títulos Lançados</h3>
+            <span class="badge badge-green" id="pagar-count">0 registros</span>
           </div>
           <table>
             <thead>
@@ -240,19 +229,18 @@
                 <th class="col-cliente">Cliente</th>
                 <th class="col-data">Data Emissão</th>
                 <th class="col-data">Data Vencimento</th>
-                <th class="col-data">Data Recebimento</th>
+                <th class="col-data">Data Pagamento</th>
                 <th class="col-valor">Valor</th>
                 <th class="col-status">Status</th>
                 <th class="col-acoes">Ações</th>
               </tr>
             </thead>
-            <tbody id="receber-tbody">
-              <tr><td colspan="7" style="text-align:center;color:var(--muted);padding:32px">Nenhum título</td></tr>
+            <tbody id="pagar-tbody">
+              <tr><td colspan="7" style="text-align:center;color:var(--muted);padding:32px">Nenhum título cadastrado</td></tr>
             </tbody>
           </table>
         </div>
       </div>
-
     </div>
   </div>
 </div>
