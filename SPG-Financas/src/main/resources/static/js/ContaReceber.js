@@ -1,9 +1,9 @@
-const API_BUSCAR_TODOS = 'http://localhost:8013/contasReceber/listar';
-const API_ATUALIZAR = 'http://localhost:8013/contasReceber/atualizar'; 
-const API_DELETAR = 'http://localhost:8013/contasReceber/deletar';
-const API_SALVAR = "http://localhost:8013/contasReceber/salvar";       
-const API_PESQUISAR = "http://localhost:8013/contasReceber/pesquisar";
-const API_LISTAR_TIPOS = 'http://localhost:8013/tipodecontas/listartodos'; 
+const API_BUSCAR_TODOS = 'http://192.168.56.1:1433:8013/contasReceber/listar';
+const API_ATUALIZAR = 'http://192.168.56.1:1433:8013/contasReceber/atualizar'; 
+const API_DELETAR = 'http://192.168.56.1:1433:8013/contasReceber/deletar';
+const API_SALVAR = "http://192.168.56.1:1433:8013/contasReceber/salvar";       
+const API_PESQUISAR = "http://192.168.56.1:1433:8013/contasReceber/pesquisar";
+const API_LISTAR_TIPOS = 'http://192.168.56.1:1433:8013/tipodecontas/listartodos'; 
 
 let editandoId = null;
 let listaContasGlobal = [];

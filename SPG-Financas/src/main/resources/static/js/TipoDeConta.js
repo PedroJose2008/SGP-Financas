@@ -1,7 +1,7 @@
-const API_BUSCAR_TODOS = "http://localhost:8013/tipodecontas/listartodos";
-const API_ATUALIZAR = "http://localhost:8013/tipodecontas/atualizar";
-const API_DELETAR = "http://localhost:8013/tipodecontas/deletar";
-const API_SALVAR = "http://localhost:8013/tipodecontas/salvar";
+const API_BUSCAR_TODOS = "http://192.168.56.1:1433:8013/tipodecontas/listartodos";
+const API_ATUALIZAR = "http://192.168.56.1:1433:8013/tipodecontas/atualizar";
+const API_DELETAR = "http://192.168.56.1:1433:8013/tipodecontas/deletar";
+const API_SALVAR = "http://192.168.56.1:1433:8013/tipodecontas/salvar";
 
 let editandoId = null;
 

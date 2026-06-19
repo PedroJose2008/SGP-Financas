@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080/Cadastro";
+const API_URL = "http://192.168.56.1:1433:8013/Cadastro";
 
 document.addEventListener("DOMContentLoaded", () => {
     carregarRelatorios();
